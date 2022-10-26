@@ -173,7 +173,7 @@ def main():
         
     st.title('Bitcoin Price Prediction ₿')
     st.write(f"HOWDY! Wonderfull ***{st.session_state['season']}*** Season. Welcome to Bitcoin ( ₿ ) Price Prediction APP It will Predict Closing Price For Bitcoin. These Predictions are based on **LSTM** Model Trained Over Historical Bitcoin Data From **2017 till {previous_date}** . the Model retratins every 10th day, The Prediction are totally based on previous Closing Values so do not invest money based on Such Predictions. Its only for Educational Purposes and should not be used for finacial purpose.")
-    st.write("Why LSTM ? Because it Performed well on the data, I used LSTM,ArimaMax,SariMax,Temporal Fusion transformer,FbProphet, NeuralProphet many different time series model for predictions in which lstm performed the best so I Selected LSTM. If you want To check how we came to conclusion. Check out https://Tusharnautiyal-web For Code.")
+    st.write("Why LSTM ? Because it Performed well on the data, I used LSTM,ArimaMax,SariMax,Temporal Fusion transformer,FbProphet, NeuralProphet many different time series model for predictions in which lstm performed the best so I Selected LSTM. If you want To check how we came to conclusion. Check out https://shorturl.at/cwHM4 For Code.")
     one_day = False
     days = int(st.number_input('Enter no of Days for Prediction'))
     st.write("or you can Select one day prediction from below ***IMPORTANT*** After **Checkbox is Clicked** Do Not Press Submit It Will automatically Run")
@@ -181,7 +181,7 @@ def main():
         one_day = True
     if one_day == True:
         days = 1
-    if st.button('Submit') and days<=10:
+    if st.button('Submit') and days<=10 and days>0:
         dataframe,values = predict_future(days)
         data = requests.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
         date = data.json()['datetime'].split('T')[0]
@@ -195,7 +195,7 @@ def main():
         result,ans = forecast_day()
         st.markdown(f"Tommorow **Bitcoin** Can Show {result} Movement.")
         st.markdown(f"And Price Can Be Around : $ {ans.reshape(1)[0]}.")
-    elif days>10:
+    elif days>10 or days<0:
         st.write("Please Renter Days As you have exceeded 10 days limit or the input is too small, If you think everything is correct still it's showing wront output please check if you are entering any spaces while input or send us feedback at info@tusharnautiyal.ml")
 if __name__ == '__main__':
     main()
