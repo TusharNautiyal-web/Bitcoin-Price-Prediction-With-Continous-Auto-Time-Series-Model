@@ -13,11 +13,8 @@ Data was given in 10 timesteps and was not multivariate so this data is basicall
 
 # Understanding Auto Training.
 
-The model auto-trains itself every 10th day of month this is done using scheduler.py to check wether it's time, if the time is right for retraining it will check wether on that day its done or not if not it will retrain the whole model using build_model.py with new data from yahoo finance for Bitcoin till the current date.
-build_model.py creates the model,
-
-The data is preprocessed into timeseries format with 10 timesteps and process the inputs as 3d inputs from 1dimensional array and divided into X_train,y_train.
-Where X_train is having 10timesteps and y_train is result after 10timesteps of data which will be predicted by our model.
+The model auto-trains itself every 10th day of month this is done using **scheduler.py** to check wether it's time, if the time is right for retraining it will check wether on that day its done or not if not it will retrain the whole model using **build_model.py** with new data from **yahoo finance** for **Bitcoin** till the current date.
+***build_model.py*** creates the model and also The data is ***preprocessed*** into timeseries format with 10 timesteps and process the inputs as 3d inputs from 1dimensional array and divided into X_train,y_train. Where X_train is having 10timesteps and y_train is result after 10timesteps of data which will be predicted by our model.
 
 # Video Demonstration
 
