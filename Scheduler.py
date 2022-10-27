@@ -12,7 +12,7 @@ def isscheduled():
         previous_date = previous_date.strip()
         file.close()
     previous_date = datetime.strptime(previous_date[2:], '%y-%m-%d')
-    if str(date-previous_date).split(' ')[0] == '10':
+    if str(date-previous_date).split(' ')[0] >= '10':
         return True 
     else:
         return False
